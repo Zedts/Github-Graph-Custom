@@ -9,9 +9,9 @@ const git = simpleGit();
 // ========================================
 // CONFIGURASI UTAMA
 // ========================================
-const YEAR_TARGET = 2023;        // Tahun target untuk commit
-const COMMIT_PER_DAY = 3;        // Jumlah commit per hari
-const TOTAL_DAYS = 1;          // Total hari (maks 365 untuk 1 tahun)
+const YEAR_TARGET = 2023; // Tahun target untuk commit
+const COMMIT_PER_DAY = 3; // Jumlah commit per hari
+const TOTAL_DAYS = 1; // Total hari (maks 365 untuk 1 tahun)
 
 // ========================================
 // MODE SELECTION
@@ -22,16 +22,16 @@ const USE_RANDOM = true;
 // ========================================
 // RANDOM CONFIG
 // ========================================
-const RANDOM_WEEK_MIN = 0;       // Week mulai dari minggu ke-
-const RANDOM_WEEK_MAX = 52;      // Week sampai minggu ke- (maksimal 52 untuk 1 tahun)
-const RANDOM_DAY_MIN = 0;        // Hari mulai (0=Senin)
-const RANDOM_DAY_MAX = 6;        // Hari sampai (6=Minggu)
+const RANDOM_WEEK_MIN = 0; // Week mulai dari minggu ke-
+const RANDOM_WEEK_MAX = 52; // Week sampai minggu ke- (maksimal 52 untuk 1 tahun)
+const RANDOM_DAY_MIN = 0; // Hari mulai (0=Senin)
+const RANDOM_DAY_MAX = 6; // Hari sampai (6=Minggu)
 
 // ========================================
 // MANUAL CONFIG
 // ========================================
-const MANUAL_X = 1;              // Minggu ke- (maksimal 52 untuk 1 tahun)
-const MANUAL_Y = 3;              // Hari ke- (0=Senin, 6=Minggu)
+const MANUAL_WEEK = 1; // Minggu ke- (maksimal 52 untuk 1 tahun)
+const MANUAL_DAY = 3; // Hari ke- (0=Senin, 6=Minggu)
 
 // ========================================
 // VALIDASI MODE SELECTION
@@ -81,9 +81,9 @@ const makeCommits = async (n) => {
     } else if (USE_MANUAL) {
 
         // LOGIC 2: MANUAL MODE
-        const startWeekMonday = targetYearStart.clone().startOf('isoWeek').add(MANUAL_X, 'weeks');
-        baseDate = startWeekMonday.clone().add(MANUAL_Y, 'days').add(TOTAL_DAYS - n, 'days');
-        console.log(`📅 MANUAL - Week:${MANUAL_X}, Day:${MANUAL_Y}, Day:${TOTAL_DAYS - n + 1}/${TOTAL_DAYS}, Date:${baseDate.format('YYYY-MM-DD (dddd)')}`);
+        const startWeekMonday = targetYearStart.clone().startOf('isoWeek').add(MANUAL_WEEK, 'weeks');
+        baseDate = startWeekMonday.clone().add(MANUAL_DAY, 'days').add(TOTAL_DAYS - n, 'days');
+        console.log(`📅 MANUAL - Week:${MANUAL_WEEK}, Day:${MANUAL_DAY}, Day:${TOTAL_DAYS - n + 1}/${TOTAL_DAYS}, Date:${baseDate.format('YYYY-MM-DD (dddd)')}`);
     }
 
     // ========================================
