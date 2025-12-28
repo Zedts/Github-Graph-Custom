@@ -1,0 +1,27 @@
+{
+  "name": "github-graph-custom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zedts/Github-Graph-Custom.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zedts/Github-Graph-Custom/issues"
+  },
+  "homepage": "https://github.com/Zedts/Github-Graph-Custom#readme",
+  "dependencies": {
+    "jsonfile": "^6.2.0",
+    "lodash.random": "^3.2.0",
+    "moment": "^2.30.1",
+    "simple-git": "^3.30.0"
+  }
+}
