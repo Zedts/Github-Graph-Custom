@@ -8,7 +8,7 @@ const path = './data.json';
 const git = simpleGit();
 
 // ========================================
-// LOGIC UTAMA
+// MAIN LOGIC
 // ========================================
 const makeCommits = async (n) => {
     if (n === 0) {
@@ -21,7 +21,7 @@ const makeCommits = async (n) => {
     let baseDate;
 
     // ========================================
-    // CALCULATE BASE DATE BERDASARKAN MODE
+    // CALCULATE BASE DATE BASED ON MODE
     // ========================================
 
     if (config.USE_RANDOM) {
@@ -43,7 +43,7 @@ const makeCommits = async (n) => {
     }
 
     // ========================================
-    // CREATE COMMITS UNTUK HARI INI
+    // CREATE COMMITS FOR TODAY
     // ========================================
 
     console.log(`📊 Processing day ${config.TOTAL_DAYS - n + 1}/${config.TOTAL_DAYS}...\n`);
