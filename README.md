@@ -210,13 +210,13 @@ Day 6 = Sunday    (Minggu)
 
 ## 🐛 **Troubleshooting**
 
-### Error: "HANYA BOLEH AKTIFKAN 1 MODE SAJA"
+### Error: "ONLY 1 MODE"
 ```
 ❌ Problem: Both USE_RANDOM and USE_MANUAL are true
 ✅ Solution: Set one to false in config.js
 ```
 
-### Error: "PILIH SETIDAKNYA 1 MODE"
+### Error: "CHOSE ATLEAST 1 MODE"
 ```
 ❌ Problem: Both modes are false or commented
 ✅ Solution: Set USE_RANDOM = true OR USE_MANUAL = true
