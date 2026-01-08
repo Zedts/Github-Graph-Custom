@@ -36,6 +36,7 @@ const getRecentDate = (n) => {
 // ========================================
 // MAIN LOGIC
 // ========================================
+
 const makeCommits = async (n) => {
     if (n === 0) {
         console.log('\n✅ Pulling remote changes first...');
@@ -88,7 +89,7 @@ const makeCommits = async (n) => {
             .hour(8 + hourOffset)
             .minute(random(0, 59))
             .second(0)
-            .format('YYYY-MM-DD HH:mm:ss Z');
+            .format();
 
         const data = { 
             date,
