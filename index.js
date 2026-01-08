@@ -25,21 +25,6 @@ const getDateManual = (targetYearStart, n) => {
 };
 
 const getRecentDate = (n) => {
-    // Calculates date going back from today (minus offset)
-    // n goes from TOTAL_DAYS down to 1.
-    // We want the sequence to cover [Today - Offset - (Total-1)] to [Today - Offset]
-    // If n=TOTAL_DAYS (start of loop), we want the earliest date?
-    // In Manual mode: add(TOTAL - n).
-    // n=TOTAL -> add(0).
-    // n=1 -> add(TOTAL-1).
-    // So makeCommits processes from Earliest to Latest.
-
-    // For Recent:
-    // Latest = moment().subtract(OFFSET, 'days')
-    // Earliest = Latest.subtract(TOTAL-1, 'days')
-
-    // Current date for step n:
-    // Earliest + (TOTAL - n) days.
 
     const latestDate = moment().subtract(config.RECENT_DAYS_OFFSET, 'days');
     const earliestDate = latestDate.clone().subtract(config.TOTAL_DAYS - 1, 'days');
@@ -51,10 +36,25 @@ const getRecentDate = (n) => {
 // ========================================
 // MAIN LOGIC
 // ========================================
+
 const makeCommits = async (n) => {
     if (n === 0) {
+        console.log('\n✅ Pulling remote changes first...');
+        try {
+            await git.pull();
+            console.log('✅ Pull successful');
+        } catch (pullError) {
+            console.log('⚠️  Pull failed (might be first push or no changes):');
+            console.log(pullError.message);
+        }
+        
         console.log('\n✅ Pushing all commits...');
-        await git.push();
+        try {
+            await git.push();
+            console.log('✅ Push successful!');
+        } catch (pushError) {
+            console.error('❌ Push failed:', pushError.message);
+        }
         return;
     }
 
@@ -89,7 +89,7 @@ const makeCommits = async (n) => {
             .hour(8 + hourOffset)
             .minute(random(0, 59))
             .second(0)
-            .format('YYYY-MM-DD HH:mm:ss Z');
+            .format();
 
         const data = { 
             date,
