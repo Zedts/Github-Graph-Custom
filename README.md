@@ -44,6 +44,8 @@ TOTAL_DAYS = 365          // How many days to fill (max 365)
 
 
 ### Mode Selection (Choose ONE)
+Set exactly one of these to `true`.
+
 ```javascript
 const USE_RANDOM = false;  // Random scatter pattern
 const USE_MANUAL = false;  // Linear sequential dates
@@ -92,18 +94,15 @@ RECENT_DAYS_OFFSET = 0    // 0 = Start from today, 1 = Start from yesterday, etc
 ```javascript
 const YEAR_TARGET = 2024;
 const COMMIT_PER_DAY = 2;
-const TOTAL_DAYS = 250; // ~50 weeks
+const TOTAL_DAYS = 250;
 
 
 const USE_RANDOM = true;
 const USE_MANUAL = false;
 const USE_RECENT = false;
 
-
 const RANDOM_WEEK_MIN = 0;
 const RANDOM_WEEK_MAX = 52;
-const RANDOM_DAY_MIN = 0;    // Monday
-const RANDOM_DAY_MAX = 6;    // Sunday
 ```
 
 
@@ -111,13 +110,12 @@ const RANDOM_DAY_MAX = 6;    // Sunday
 ```javascript
 const YEAR_TARGET = 2023;
 const COMMIT_PER_DAY = 3;
-const TOTAL_DAYS = 365; // Full year
+const TOTAL_DAYS = 365;
 
 
 const USE_RANDOM = false;
 const USE_MANUAL = true;
 const USE_RECENT = false;
-
 
 const MANUAL_WEEK = 1;   // Start from week 1
 const MANUAL_DAY = 0;    // Start from Monday
@@ -142,7 +140,7 @@ const RECENT_DAYS_OFFSET = 0;  // 0 = Start from today, 5 = Start from 5 days ag
 ## 📁 **File Structure**
 ```
 Github-Graph-Custom/
-├── 📄 index.js          # Main logic (don't edit, all logic goes here, nothing to worry about in this file)
+├── 📄 index.js          # Main logic (don't edit, all logic goes here)
 ├── 📄 config.js         # 🎛️ EDIT YOUR SETTINGS HERE
 ├── 📄 data.json         # Auto-generated (git tracked)
 ├── 📄 README.md         # This file
@@ -167,7 +165,6 @@ Edit `config.js` with your desired settings:
 ```bash
 # Open in your editor
 nano config.js
-# or use VS Code, Sublime, etc
 ```
 
 
@@ -181,9 +178,9 @@ node index.js
 ```
 🚀 GITHUB COMMIT GENERATOR
 ==================================================
-📆 Year: 2023
-📊 365 hari × 3 commits = 1095 commits
-🎮 Mode: RANDOM
+📆 Year: CURRENT/RECENT
+📊 7 hari × 5 commits = 35 commits
+🎮 Mode: RECENT
 ==================================================
 🎲 RANDOM - Week:19(0-52), Day:2(0-6), Date:2023-05-10 (Wednesday)
 📊 Processing day 1/365...
@@ -214,7 +211,7 @@ Each commit generates:
   "batch": 1,
   "total": 3,
   "year": 2023,
-  "mode": "random",
+  "mode": "recent",
   "timestamp": 1234567890123
 }
 ```
@@ -516,10 +513,7 @@ MIT License - Free to use and modify
 
 
 ## 👨‍💻 **Contributing**
-Contributions welcome! Feel free to:
-- Report bugs
-- Suggest features
-- Submit pull requests
+Contributions welcome!
 
 
 ## ⭐ **Support**
