@@ -8,9 +8,9 @@ const TOTAL_DAYS = 6; // Total days (max 365 for 1 year)
 // ========================================
 // MODE SELECTION (CHOOSE MODE true / false)
 // ========================================
-const USE_RANDOM = true;
+const USE_RANDOM = false;
 const USE_MANUAL = false;
-const USE_RECENT = false;
+const USE_RECENT = true;
 
 // ========================================
 // RANDOM CONFIG
