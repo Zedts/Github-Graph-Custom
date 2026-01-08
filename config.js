@@ -1,9 +1,9 @@
 // ========================================
 // GITHUB COMMIT GENERATOR CONFIGURATION
 // ========================================
-const YEAR_TARGET = 2023; // Target year for commits
+const YEAR_TARGET = 2025; // Target year for commits
 const COMMIT_PER_DAY = 1; // Number of commits per day
-const TOTAL_DAYS = 1; // Total days (max 365 for 1 year)
+const TOTAL_DAYS = 6; // Total days (max 365 for 1 year)
 
 // ========================================
 // MODE SELECTION (CHOOSE MODE true / false)
@@ -15,7 +15,7 @@ const USE_MANUAL = false;
 // RANDOM CONFIG
 // ========================================
 const RANDOM_WEEK_MIN = 0; // Week start from week number
-const RANDOM_WEEK_MAX = 52; // Week until week number (max 52 for 1 year)
+const RANDOM_WEEK_MAX = 1; // Week until week number (max 52 for 1 year)
 const RANDOM_DAY_MIN = 0; // Day start (0=Monday)
 const RANDOM_DAY_MAX = 6; // Day until (6=Sunday)
 

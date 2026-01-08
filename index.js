@@ -12,8 +12,22 @@ const git = simpleGit();
 // ========================================
 const makeCommits = async (n) => {
     if (n === 0) {
+        console.log('\n✅ Pulling remote changes first...');
+        try {
+            await git.pull();
+            console.log('✅ Pull successful');
+        } catch (pullError) {
+            console.log('⚠️  Pull failed (might be first push or no changes):');
+            console.log(pullError.message);
+        }
+        
         console.log('\n✅ Pushing all commits...');
-        await git.push();
+        try {
+            await git.push();
+            console.log('✅ Push successful!');
+        } catch (pushError) {
+            console.error('❌ Push failed:', pushError.message);
+        }
         return;
     }
 
