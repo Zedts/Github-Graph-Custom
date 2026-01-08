@@ -1,7 +1,7 @@
 // ========================================
 // GITHUB COMMIT GENERATOR CONFIGURATION
 // ========================================
-const YEAR_TARGET = 2023; // Target year for commits
+const YEAR_TARGET = 2023; // Target year for commits (Ignored in RECENT mode)
 const COMMIT_PER_DAY = 1; // Number of commits per day
 const TOTAL_DAYS = 1; // Total days (max 365 for 1 year)
 
@@ -10,6 +10,7 @@ const TOTAL_DAYS = 1; // Total days (max 365 for 1 year)
 // ========================================
 const USE_RANDOM = true;
 const USE_MANUAL = false;
+const USE_RECENT = false;
 
 // ========================================
 // RANDOM CONFIG
@@ -26,20 +27,24 @@ const MANUAL_WEEK = 1; // Week number (max 52 for 1 year)
 const MANUAL_DAY = 3; // Day number (0=Monday, 6=Sunday)
 
 // ========================================
+// RECENT CONFIG
+// ========================================
+const RECENT_DAYS_OFFSET = 0; // 0 = Start from today, 1 = Start from yesterday
+
+// ========================================
 // MODE SELECTION VALIDATION
 // ========================================
-if (USE_RANDOM && USE_MANUAL) {
+const activeModes = [USE_RANDOM, USE_MANUAL, USE_RECENT].filter(Boolean).length;
+
+if (activeModes > 1) {
     console.error('❌ ERROR: ONLY 1 MODE CAN BE ACTIVATED!');
-    console.error('   → Comment one of: USE_RANDOM or USE_MANUAL');
-    console.error('   → Example RANDOM: const USE_RANDOM = true; const USE_MANUAL = false;');
-    console.error('   → Example MANUAL: const USE_RANDOM = false; const USE_MANUAL = true;');
+    console.error('   → Set only one of these to true: USE_RANDOM, USE_MANUAL, USE_RECENT');
     process.exit(1);
 }
 
-if (!USE_RANDOM && !USE_MANUAL) {
+if (activeModes === 0) {
     console.error('❌ ERROR: CHOOSE AT LEAST 1 MODE!');
-    console.error('   → Uncomment one of: USE_RANDOM or USE_MANUAL');
-    console.error('   → Example: const USE_RANDOM = true; const USE_MANUAL = false;');
+    console.error('   → Set one of these to true: USE_RANDOM, USE_MANUAL, USE_RECENT');
     process.exit(1);
 }
 
@@ -49,10 +54,12 @@ export default {
     TOTAL_DAYS,
     USE_RANDOM,
     USE_MANUAL,
+    USE_RECENT,
     RANDOM_WEEK_MIN,
     RANDOM_WEEK_MAX,
     RANDOM_DAY_MIN,
     RANDOM_DAY_MAX,
     MANUAL_WEEK,
-    MANUAL_DAY
+    MANUAL_DAY,
+    RECENT_DAYS_OFFSET
 };
